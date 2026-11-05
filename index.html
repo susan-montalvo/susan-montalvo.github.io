@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      id="page-description"
+      name="description"
+      content="Sitio web personal de Susan."
+    />
+    <title>Website Susan</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-name" href="#inicio">Susan</a>
+      <div class="header-controls">
+        <nav
+          aria-label="Navegación principal"
+          data-es-label="Navegación principal"
+          data-en-label="Main navigation"
+        >
+          <a href="#sobre-mi" data-es="Sobre mí" data-en="About me">Sobre mí</a>
+          <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+          <a href="#ponencias" data-es="Ponencias" data-en="Talks">Ponencias</a>
+          <a href="#iniciativas-digitales" data-es="Iniciativas Digitales" data-en="Digital Initiatives">Iniciativas Digitales</a>
+          <a href="#experiencia-profesional" data-es="Experiencia Profesional" data-en="Professional Experience">Experiencia Profesional</a>
+        </nav>
+        <div class="language-switch" role="group" aria-label="Idioma / Language">
+          <button type="button" class="language-button is-active" data-language="es" aria-pressed="true">ES</button>
+          <button type="button" class="language-button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="page-title">
+        <p class="eyebrow" data-es="Bienvenida a mi espacio" data-en="Welcome to my space">
+          Bienvenida a mi espacio
+        </p>
+        <h1 id="page-title" data-es="Hola, soy Susan." data-en="Hi, I'm Susan.">
+          Hola, soy Susan.
+        </h1>
+        <p
+          class="intro"
+          data-es="Este es mi sitio web. Pronto compartiré aquí más sobre mí y mis proyectos."
+          data-en="This is my website. I'll be sharing more about myself and my projects here soon."
+        >
+          Este es mi sitio web. Pronto compartiré aquí más sobre mí y mis
+          proyectos.
+        </p>
+        <a class="button" href="#sobre-mi" data-es="Conóceme" data-en="Get to know me">
+          Conóceme
+        </a>
+      </section>
+
+      <section class="content-section" id="sobre-mi">
+        <h2 data-es="Sobre mí" data-en="About me">Sobre mí</h2>
+        <figure class="profile-photo">
+          <img
+            src="assets/susan-montalvo.jpg"
+            alt="Susan Montalvo"
+            width="768"
+            height="768"
+          />
+        </figure>
+        <p
+          data-es="Gestora cultural especializada en la industria editorial y su internacionalización. En el Ministerio de Cultura coordiné la participación peruana en ferias internacionales y fui coordinadora general de la Feria Internacional del Libro de Cusco. Me especialicé en internacionalización editorial con CERLALC-UNESCO."
+          data-en="A cultural manager specializing in publishing and its internationalization. At Peru's Ministry of Culture, I coordinated the country's participation in international book fairs and served as general coordinator of the Cusco International Book Fair. I specialized in publishing internationalization with CERLALC-UNESCO."
+        >
+          Gestora cultural especializada en la industria editorial y su
+          internacionalización. En el Ministerio de Cultura coordiné la
+          participación peruana en ferias internacionales y fui coordinadora
+          general de la Feria Internacional del Libro de Cusco. Me especialicé
+          en internacionalización editorial con CERLALC-UNESCO.
+        </p>
+        <p
+          data-es="Promuevo la inteligencia editorial mediante metadatos, datos abiertos y análisis de la producción y circulación del libro. Desarrollé un dashboard sobre el registro ISBN 2015–2025 y en 2026 presenté en Liber una ponencia sobre ferias internacionales y plataformas digitales."
+          data-en="I advance publishing intelligence through metadata, open data, and analysis of book production and circulation. I developed a dashboard based on ISBN registry data for 2015–2025 and, in 2026, presented at Liber on international book fairs and digital platforms."
+        >
+          Promuevo la inteligencia editorial mediante metadatos, datos abiertos
+          y análisis de la producción y circulación del libro. Desarrollé un
+          dashboard sobre el registro ISBN 2015–2025 y en 2026 presenté en
+          Liber una ponencia sobre ferias internacionales y plataformas
+          digitales.
+        </p>
+        <p
+          data-es="Dirijo Quriosa Soluciones Digitales, donde desarrollo proyectos editoriales digitales y sistemas de metadatos. También impulso sistemas de gestión interoperables para bibliotecas del centro histórico de Cusco y promuevo el uso de Simeh como representante local de Hipertexto Netizen. Soy licenciada en Periodismo por la PUCP, con experiencia en comunicación institucional y educación superior."
+          data-en="I lead Quriosa Soluciones Digitales, developing digital publishing projects and metadata systems. I also advance interoperable management systems for libraries in Cusco's historic center and promote Simeh as Hipertexto Netizen's local representative. I hold a Journalism degree from PUCP and have experience in institutional communications and higher education."
+        >
+          Dirijo Quriosa Soluciones Digitales, donde desarrollo proyectos
+          editoriales digitales y sistemas de metadatos. También impulso
+          sistemas de gestión interoperables para bibliotecas del centro
+          histórico de Cusco y promuevo el uso de Simeh como representante local
+          de Hipertexto Netizen. Soy licenciada en Periodismo por la PUCP, con
+          experiencia en comunicación institucional y educación superior.
+        </p>
+      </section>
+
+      <section class="content-section" id="proyectos">
+        <h2 data-es="Proyectos" data-en="Projects">Proyectos</h2>
+        <article class="project-card">
+          <div class="project-card-content">
+            <p class="project-kicker" data-es="Proyecto de análisis de datos · Perú, 2015–2025" data-en="Data analysis project · Peru, 2015–2025">
+              Proyecto de análisis de datos · Perú, 2015–2025
+            </p>
+            <h3
+              data-es="Más títulos, menos ejemplares: la década editorial del Perú"
+              data-en="More titles, fewer copies: a decade of publishing in Peru"
+            >
+              Más títulos, menos ejemplares: la década editorial del Perú
+            </h3>
+            <p
+              class="project-description"
+              data-es="¿Cómo ha cambiado la producción y circulación editorial en el Perú? Explora el registro ISBN, los formatos digitales, las diferencias entre departamentos y el comercio exterior de libros mediante gráficos interactivos y filtros."
+              data-en="How have publishing output and circulation changed in Peru? Explore ISBN records, digital formats, regional differences, and book trade through interactive charts and filters."
+            >
+              ¿Cómo ha cambiado la producción y circulación editorial en el
+              Perú? Explora el registro ISBN, los formatos digitales, las
+              diferencias entre departamentos y el comercio exterior de libros
+              mediante gráficos interactivos y filtros.
+            </p>
+            <div class="project-metrics" aria-label="Hallazgos destacados" data-es-label="Hallazgos destacados" data-en-label="Key findings">
+              <div class="project-metric">
+                <strong>10 345</strong>
+                <span data-es="títulos ISBN en 2025" data-en="ISBN titles in 2025">títulos ISBN en 2025</span>
+              </div>
+              <div class="project-metric">
+                <strong>−59 %</strong>
+                <span data-es="ejemplares declarados, 2015–2023" data-en="reported copies, 2015–2023">ejemplares declarados, 2015–2023</span>
+              </div>
+              <div class="project-metric">
+                <strong>23,9 %</strong>
+                <span data-es="publicaciones digitales en 2025" data-en="digital publications in 2025">publicaciones digitales en 2025</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a
+                class="project-cta"
+                href="https://susan-montalvo.github.io/produccion-editorial-peru/web/"
+                target="_blank"
+                rel="noopener"
+                data-es="Explorar el dashboard interactivo"
+                data-en="Explore the interactive dashboard"
+              >
+                Explorar el dashboard interactivo
+              </a>
+              <a
+                class="project-source"
+                href="https://github.com/susan-montalvo/produccion-editorial-peru"
+                target="_blank"
+                rel="noopener"
+                data-es="Ver metodología y código"
+                data-en="View methodology and source code"
+              >
+                Ver metodología y código
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="content-section" id="iniciativas-digitales">
+        <h2
+          data-es="Iniciativas Digitales"
+          data-en="Digital Initiatives"
+        >
+          Iniciativas Digitales
+        </h2>
+      </section>
+
+      <section class="content-section" id="ponencias">
+        <h2 data-es="Ponencias" data-en="Talks">Ponencias</h2>
+        <article>
+          <h3
+            data-es="Ferias internacionales y plataformas digitales: un necesario modelo híbrido para las citas de negocios"
+            data-en="International book fairs and digital platforms: a necessary hybrid model for business meetings"
+          >
+            Ferias internacionales y plataformas digitales: un necesario modelo
+            híbrido para las citas de negocios
+          </h3>
+          <p
+            data-es="Ponencia presentada en 2026 en las jornadas profesionales de Liber, organizadas por la Federación de Gremios de Editores de España."
+            data-en="Talk presented in 2026 at Liber's professional conference, organized by the Federation of Spanish Publishers' Guilds."
+          >
+            Ponencia presentada en 2026 en las jornadas profesionales de Liber,
+            organizadas por la Federación de Gremios de Editores de España.
+          </p>
+        </article>
+        <div
+          class="presentation-viewer"
+          role="region"
+          aria-label="Presentación de Liber"
+          data-es-label="Presentación de Liber"
+          data-en-label="Liber presentation"
+        >
+          <h3
+            data-es="Ver presentación"
+            data-en="View presentation"
+          >
+            Ver presentación
+          </h3>
+          <figure class="presentation-slide">
+            <img
+              id="liber-slide"
+              src="assets/liber/presentacion-completa/diapositiva-18-1/Diapositiva01.png"
+              alt="Diapositiva 1 de la presentación de Liber"
+              data-es-alt="Diapositiva de la presentación de Liber"
+              data-en-alt="Slide from the Liber presentation"
+              width="720"
+              height="405"
+              fetchpriority="high"
+            />
+            <figcaption
+              id="liber-slide-count"
+              class="slide-count"
+              aria-live="polite"
+            >
+              Diapositiva 1 de 24
+            </figcaption>
+          </figure>
+          <div class="presentation-controls">
+            <button
+              type="button"
+              class="presentation-button"
+              id="previous-slide"
+              data-es="Anterior"
+              data-en="Previous"
+              aria-label="Diapositiva anterior"
+              data-es-label="Diapositiva anterior"
+              data-en-label="Previous slide"
+              disabled
+            >
+              Anterior
+            </button>
+            <button
+              type="button"
+              class="presentation-button"
+              id="next-slide"
+              data-es="Siguiente"
+              data-en="Next"
+              aria-label="Diapositiva siguiente"
+              data-es-label="Diapositiva siguiente"
+              data-en-label="Next slide"
+            >
+              Siguiente
+            </button>
+          </div>
+          <p
+            id="liber-slide-error"
+            class="presentation-error"
+            role="status"
+            hidden
+            data-es="No se pudo cargar esta diapositiva."
+            data-en="This slide could not be loaded."
+          >
+            No se pudo cargar esta diapositiva.
+          </p>
+        </div>
+        <div
+          class="presentation-viewer archive-carousel"
+          id="archive-carousel"
+          role="region"
+          tabindex="0"
+          aria-label="Imágenes de la Feria Internacional del Libro de Cusco"
+          data-es-label="Imágenes de la Feria Internacional del Libro de Cusco"
+          data-en-label="Images from the Cusco International Book Fair"
+        >
+          <h3 data-es="Galería de imágenes" data-en="Image gallery">
+            Galería de imágenes
+          </h3>
+          <figure class="presentation-slide">
+            <img
+              id="archive-carousel-image"
+              src="assets/liber/diapositiva-18-2.png"
+              alt="Afiche de la Feria Internacional del Libro de Cusco 2020 y sus tiendas virtuales"
+              width="720"
+              height="405"
+            />
+            <figcaption
+              id="archive-carousel-caption"
+              class="slide-count"
+              aria-live="polite"
+            >
+              Tiendas virtuales
+            </figcaption>
+            <p id="archive-carousel-count" class="slide-count">1 de 6</p>
+          </figure>
+          <div class="presentation-controls">
+            <button
+              type="button"
+              class="presentation-button"
+              id="archive-carousel-previous"
+              data-es="Anterior"
+              data-en="Previous"
+              data-es-label="Imagen anterior"
+              data-en-label="Previous image"
+              aria-label="Imagen anterior"
+              disabled
+            >
+              Anterior
+            </button>
+            <button
+              type="button"
+              class="presentation-button"
+              id="archive-carousel-next"
+              data-es="Siguiente"
+              data-en="Next"
+              data-es-label="Imagen siguiente"
+              data-en-label="Next image"
+              aria-label="Imagen siguiente"
+            >
+              Siguiente
+            </button>
+          </div>
+          <p
+            id="archive-carousel-error"
+            class="presentation-error"
+            role="status"
+            hidden
+            data-es="No se pudo cargar esta imagen."
+            data-en="This image could not be loaded."
+          >
+            No se pudo cargar esta imagen.
+          </p>
+        </div>
+        <h3
+          class="archive-heading"
+          data-es="Feria Internacional del Libro de Cusco 2020 (virtual) · Diapositiva 18"
+          data-en="Cusco International Book Fair 2020 (virtual) · Slide 18"
+        >
+          Feria Internacional del Libro de Cusco 2020 (virtual) · Diapositiva
+          18
+        </h3>
+        <div class="slide-gallery">
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-18-1.png" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-18-1.png"
+                alt="Captura de la sección de tiendas virtuales de la FIL Cusco"
+                data-es-alt="Captura de la sección de tiendas virtuales de la FIL Cusco"
+                data-en-alt="Screenshot of the FIL Cusco virtual stores section"
+                loading="lazy"
+              />
+            </a>
+            <figcaption data-es="Tiendas virtuales" data-en="Virtual stores">
+              Tiendas virtuales
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-18-2.png" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-18-2.png"
+                alt="Afiche de la Feria Internacional del Libro de Cusco 2020 y sus tiendas virtuales"
+                data-es-alt="Afiche de la Feria Internacional del Libro de Cusco 2020 y sus tiendas virtuales"
+                data-en-alt="Poster for the 2020 Cusco International Book Fair and its virtual stores"
+                loading="lazy"
+              />
+            </a>
+            <figcaption data-es="Afiche de FIL Cusco 2020" data-en="FIL Cusco 2020 poster">
+              Afiche de FIL Cusco 2020
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-18-3.jpeg" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-18-3.jpeg"
+                alt="Gráfica promocional de las tiendas virtuales de FIL Cusco 2020"
+                data-es-alt="Gráfica promocional de las tiendas virtuales de FIL Cusco 2020"
+                data-en-alt="Promotional graphic for the FIL Cusco 2020 virtual stores"
+                loading="lazy"
+              />
+            </a>
+            <figcaption data-es="Promoción de tiendas virtuales" data-en="Virtual stores promotion">
+              Promoción de tiendas virtuales
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3
+          class="archive-heading"
+          data-es="Programa cultural · Diapositiva 20"
+          data-en="Cultural program · Slide 20"
+        >
+          Programa cultural · Diapositiva 20
+        </h3>
+        <div class="slide-gallery">
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-20-1.jpg" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-20-1.jpg"
+                alt="Panel de administración de la página de Facebook de FIL Cusco"
+                data-es-alt="Panel de administración de la página de Facebook de FIL Cusco"
+                data-en-alt="FIL Cusco Facebook page administration dashboard"
+                loading="lazy"
+              />
+            </a>
+            <figcaption
+              data-es="Gestión de la página de FIL Cusco"
+              data-en="FIL Cusco page management"
+            >
+              Gestión de la página de FIL Cusco
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-20-2.png" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-20-2.png"
+                alt="Afiche del programa infantil de FIL Cusco 2020"
+                data-es-alt="Afiche del programa infantil de FIL Cusco 2020"
+                data-en-alt="Poster for the FIL Cusco 2020 children's program"
+                loading="lazy"
+              />
+            </a>
+            <figcaption
+              data-es="Programa infantil"
+              data-en="Children's program"
+            >
+              Programa infantil
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-20-3.png" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-20-3.png"
+                alt="Gráfica de FIL Cusco 2020 con el número de invitados nacionales e internacionales"
+                data-es-alt="Gráfica de FIL Cusco 2020 con el número de invitados nacionales e internacionales"
+                data-en-alt="FIL Cusco 2020 graphic showing the number of national and international guests"
+                loading="lazy"
+              />
+            </a>
+            <figcaption
+              data-es="Invitados nacionales e internacionales"
+              data-en="National and international guests"
+            >
+              Invitados nacionales e internacionales
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-20-4.jpeg" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-20-4.jpeg"
+                alt="Afiche de actividades del programa infantil de FIL Cusco"
+                data-es-alt="Afiche de actividades del programa infantil de FIL Cusco"
+                data-en-alt="Poster of children's program activities at FIL Cusco"
+                loading="lazy"
+              />
+            </a>
+            <figcaption
+              data-es="Actividades culturales"
+              data-en="Cultural activities"
+            >
+              Actividades culturales
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3
+          class="archive-heading"
+          data-es="Agradecimientos y cierre · Diapositiva 22"
+          data-en="Acknowledgments and closing · Slide 22"
+        >
+          Agradecimientos y cierre · Diapositiva 22
+        </h3>
+        <div class="slide-gallery">
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-22-1.jpeg" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-22-1.jpeg"
+                alt="Afiche de cierre de la Feria Internacional del Libro de Cusco 2020"
+                data-es-alt="Afiche de cierre de la Feria Internacional del Libro de Cusco 2020"
+                data-en-alt="Closing poster for the 2020 Cusco International Book Fair"
+                loading="lazy"
+              />
+            </a>
+            <figcaption data-es="Cierre de FIL Cusco 2020" data-en="FIL Cusco 2020 closing">
+              Cierre de FIL Cusco 2020
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-22-2.jpeg" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-22-2.jpeg"
+                alt="Afiche de agradecimiento a las instituciones colaboradoras del programa infantil"
+                data-es-alt="Afiche de agradecimiento a las instituciones colaboradoras del programa infantil"
+                data-en-alt="Thank-you poster for institutions supporting the children's program"
+                loading="lazy"
+              />
+            </a>
+            <figcaption
+              data-es="Instituciones colaboradoras"
+              data-en="Collaborating institutions"
+            >
+              Instituciones colaboradoras
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-22-3.jpeg" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-22-3.jpeg"
+                alt="Afiche de agradecimiento a los expositores del campo ferial"
+                data-es-alt="Afiche de agradecimiento a los expositores del campo ferial"
+                data-en-alt="Thank-you poster for exhibitors at the fairgrounds"
+                loading="lazy"
+              />
+            </a>
+            <figcaption data-es="Expositores" data-en="Exhibitors">
+              Expositores
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-22-4.jpeg" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-22-4.jpeg"
+                alt="Afiche de agradecimiento a los invitados nacionales"
+                data-es-alt="Afiche de agradecimiento a los invitados nacionales"
+                data-en-alt="Thank-you poster for national guests"
+                loading="lazy"
+              />
+            </a>
+            <figcaption data-es="Invitados nacionales" data-en="National guests">
+              Invitados nacionales
+            </figcaption>
+          </figure>
+          <figure class="slide-image">
+            <a href="assets/liber/diapositiva-22-5.jpeg" target="_blank" rel="noopener">
+              <img
+                src="assets/liber/diapositiva-22-5.jpeg"
+                alt="Afiche de agradecimiento a los invitados internacionales"
+                data-es-alt="Afiche de agradecimiento a los invitados internacionales"
+                data-en-alt="Thank-you poster for international guests"
+                loading="lazy"
+              />
+            </a>
+            <figcaption
+              data-es="Invitados internacionales"
+              data-en="International guests"
+            >
+              Invitados internacionales
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="content-section" id="experiencia-profesional">
+        <h2
+          data-es="Experiencia Profesional"
+          data-en="Professional Experience"
+        >
+          Experiencia Profesional
+        </h2>
+        <div class="experience-group">
+          <h3 data-es="Dirección y liderazgo" data-en="Leadership">
+            Dirección y liderazgo
+          </h3>
+          <article class="experience-card">
+            <h4 data-es="Gerente general" data-en="General Manager">
+              Gerente general
+            </h4>
+            <p class="experience-organization">
+              Quriosa Soluciones Digitales
+            </p>
+            <p
+              class="experience-period"
+              data-es="Jul. 2026 – actualidad · 5 meses"
+              data-en="Jul 2026 – present · 5 months"
+            >
+              Jul. 2026 – actualidad · 5 meses
+            </p>
+          </article>
+          <article class="experience-card">
+            <h4 data-es="Vicepresidenta" data-en="Vice President">
+              Vicepresidenta
+            </h4>
+            <p class="experience-organization">
+              Asociación La Casona Española
+              <span
+                data-es="(sin ánimo de lucro)"
+                data-en="(nonprofit organization)"
+              >
+                (sin ánimo de lucro)
+              </span>
+            </p>
+            <p
+              class="experience-period"
+              data-es="May. – ago. 2026 · 4 meses"
+              data-en="May – Aug 2026 · 4 months"
+            >
+              May. – ago. 2026 · 4 meses
+            </p>
+          </article>
+        </div>
+
+        <div class="experience-group">
+          <h3
+            data-es="Gestión cultural y ferias del libro"
+            data-en="Cultural management and book fairs"
+          >
+            Gestión cultural y ferias del libro
+          </h3>
+          <article class="experience-card">
+            <h4
+              data-es="Especialista en gestión de ferias del libro en el extranjero"
+              data-en="International Book Fair Management Specialist"
+            >
+              Especialista en gestión de ferias del libro en el extranjero
+            </h4>
+            <p class="experience-organization">
+              Ministerio de Cultura del Perú
+            </p>
+            <p
+              class="experience-period"
+              data-es="Dic. 2023 – abr. 2026 · 2 años 5 meses"
+              data-en="Dec 2023 – Apr 2026 · 2 years 5 months"
+            >
+              Dic. 2023 – abr. 2026 · 2 años 5 meses
+            </p>
+          </article>
+          <article class="experience-card">
+            <h4
+              data-es="Especialista en gestión de ferias internacionales del libro (FIL Cusco)"
+              data-en="International Book Fair Management Specialist (FIL Cusco)"
+            >
+              Especialista en gestión de ferias internacionales del libro (FIL
+              Cusco)
+            </h4>
+            <p class="experience-organization">
+              Ministerio de Cultura del Perú
+            </p>
+            <p
+              class="experience-period"
+              data-es="Feb. 2019 – nov. 2021 · 2 años 10 meses"
+              data-en="Feb 2019 – Nov 2021 · 2 years 10 months"
+            >
+              Feb. 2019 – nov. 2021 · 2 años 10 meses
+            </p>
+          </article>
+        </div>
+
+        <div class="experience-group">
+          <h3
+            data-es="Comunicación institucional"
+            data-en="Institutional communications"
+          >
+            Comunicación institucional
+          </h3>
+          <article class="experience-card">
+            <h4
+              data-es="Comunicadora del Vicerrectorado Administrativo"
+              data-en="Communications Officer, Office of the Vice President for Administration"
+            >
+              Comunicadora del Vicerrectorado Administrativo
+            </h4>
+            <p class="experience-organization">PUCP</p>
+            <p
+              class="experience-period"
+              data-es="Ene. 2013 – jun. 2017 · 4 años 6 meses"
+              data-en="Jan 2013 – Jun 2017 · 4 years 6 months"
+            >
+              Ene. 2013 – jun. 2017 · 4 años 6 meses
+            </p>
+          </article>
+          <article class="experience-card">
+            <h4
+              data-es="Jefa de Imagen Institucional, Relaciones Públicas y Prensa"
+              data-en="Head of Institutional Image, Public Relations, and Press"
+            >
+              Jefa de Imagen Institucional, Relaciones Públicas y Prensa
+            </h4>
+            <p class="experience-organization">
+              Zona Arqueológica Caral
+            </p>
+            <p
+              class="experience-period"
+              data-es="Sept. 2010 – may. 2012 · 1 año 9 meses"
+              data-en="Sep 2010 – May 2012 · 1 year 9 months"
+            >
+              Sept. 2010 – may. 2012 · 1 año 9 meses
+            </p>
+            <details class="experience-related">
+              <summary
+                data-es="Publicación y cobertura de Caral"
+                data-en="Caral publication and press coverage"
+              >
+                Publicación y cobertura de Caral
+              </summary>
+              <p>
+                <a
+                  href="assets/publicaciones/el-caralino-zac.pdf"
+                  download
+                  data-es="El Caralino · Descargar PDF"
+                  data-en="El Caralino · Download PDF"
+                >El Caralino · Descargar PDF</a>
+              </p>
+              <div class="publication-gallery">
+                <figure class="archive-item">
+                  <a
+                    href="assets/publicaciones/cobertura-caral-16-10-2010-el-comercio.jpeg"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <img
+                      src="assets/publicaciones/cobertura-caral-16-10-2010-el-comercio.jpeg"
+                      alt="Portada de El Comercio del 16 de octubre de 2010 con una nota sobre Caral"
+                      data-es-alt="Portada de El Comercio del 16 de octubre de 2010 con una nota sobre Caral"
+                      data-en-alt="El Comercio front page from October 16, 2010, featuring a story about Caral"
+                      loading="lazy"
+                    />
+                  </a>
+                  <figcaption
+                    data-es="El Comercio · cobertura de Caral · 16 oct. 2010"
+                    data-en="El Comercio · Caral coverage · Oct 16, 2010"
+                  >
+                    El Comercio · cobertura de Caral · 16 oct. 2010
+                  </figcaption>
+                </figure>
+                <figure class="archive-item">
+                  <a
+                    href="assets/publicaciones/estatuillas-caral-el-comercio.jpeg"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <img
+                      src="assets/publicaciones/estatuillas-caral-el-comercio.jpeg"
+                      alt="Artículo de prensa sobre estatuillas halladas en Caral"
+                      data-es-alt="Artículo de prensa sobre estatuillas halladas en Caral"
+                      data-en-alt="Newspaper story about figurines found at Caral"
+                      loading="lazy"
+                    />
+                  </a>
+                  <figcaption
+                    data-es="“Estatuillas brindan información sobre estilos de vida en Caral” · El Comercio"
+                    data-en="“Figurines reveal information about lifestyles in Caral” · El Comercio"
+                  >
+                    “Estatuillas brindan información sobre estilos de vida en
+                    Caral” · El Comercio
+                  </figcaption>
+                </figure>
+                <figure class="archive-item">
+                  <a
+                    href="assets/publicaciones/vargas-llosa-visita-caral-2011.png"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <img
+                      src="assets/publicaciones/vargas-llosa-visita-caral-2011.png"
+                      alt="Recorte sobre la visita de Vargas Llosa y el ministro de Cultura a Caral"
+                      data-es-alt="Recorte sobre la visita de Vargas Llosa y el ministro de Cultura a Caral"
+                      data-en-alt="Press clipping about Vargas Llosa and the Minister of Culture visiting Caral"
+                      loading="lazy"
+                    />
+                  </a>
+                  <figcaption
+                    data-es="“Vargas Llosa y el ministro de Cultura visitaron Caral” · 24 feb. 2011"
+                    data-en="“Vargas Llosa and the Minister of Culture visited Caral” · Feb 24, 2011"
+                  >
+                    “Vargas Llosa y el ministro de Cultura visitaron Caral” ·
+                    24 feb. 2011
+                  </figcaption>
+                </figure>
+                <figure class="archive-item">
+                  <a
+                    href="assets/publicaciones/caral-varias-llosa-visita-2011.jpg"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <img
+                      src="assets/publicaciones/caral-varias-llosa-visita-2011.jpg"
+                      alt="Recorte de El Comercio de febrero de 2011 con el artículo Viaje a las fuentes, de Mario Vargas Llosa"
+                      data-es-alt="Recorte de El Comercio de febrero de 2011 con el artículo Viaje a las fuentes, de Mario Vargas Llosa"
+                      data-en-alt="February 2011 El Comercio clipping of Mario Vargas Llosa's article, Journey to the Sources"
+                      loading="lazy"
+                    />
+                  </a>
+                  <figcaption
+                    data-es="“Viaje a las fuentes”, de Mario Vargas Llosa · El Comercio · feb. 2011"
+                    data-en="“Journey to the Sources,” by Mario Vargas Llosa · El Comercio · Feb 2011"
+                  >
+                    “Viaje a las fuentes”, de Mario Vargas Llosa · El Comercio
+                    · feb. 2011
+                  </figcaption>
+                </figure>
+              </div>
+            </details>
+          </article>
+          <article class="experience-card">
+            <h4
+              data-es="Comunicadora, Dirección Nacional de Promoción del Empleo"
+              data-en="Communications Officer, National Directorate for Employment Promotion"
+            >
+              Comunicadora, Dirección Nacional de Promoción del Empleo
+            </h4>
+            <p class="experience-organization">
+              Ministerio de Trabajo y Promoción del Empleo
+            </p>
+            <p
+              class="experience-period"
+              data-es="Mar. 2006 – jul. 2010 · 4 años 5 meses"
+              data-en="Mar 2006 – Jul 2010 · 4 years 5 months"
+            >
+              Mar. 2006 – jul. 2010 · 4 años 5 meses
+            </p>
+          </article>
+        </div>
+
+        <div class="experience-group">
+          <h3 data-es="Redacción y edición" data-en="Writing and editing">
+            Redacción y edición
+          </h3>
+          <article class="experience-card">
+            <h4
+              data-es="Redactora y correctora de estilo independiente"
+              data-en="Freelance writer and copy editor"
+            >
+              Redactora y correctora de estilo independiente
+            </h4>
+            <p class="experience-organization">
+              PNUD, SERNANP, SENCICO, La República, El Peruano y otros
+            </p>
+            <p
+              class="experience-period"
+              data-es="Jun. 2005 – may. 2014 · 9 años"
+              data-en="Jun 2005 – May 2014 · 9 years"
+            >
+              Jun. 2005 – may. 2014 · 9 años
+            </p>
+            <details class="experience-related">
+              <summary
+                data-es="Publicaciones seleccionadas"
+                data-en="Selected publications"
+              >
+                Publicaciones seleccionadas
+              </summary>
+              <ul class="related-publication-list">
+                <li>
+                  <a
+                    href="assets/publicaciones/qoyllur-riti-variedades-279-el-peruano-2012.pdf"
+                    download
+                    data-es="Qoyllur Riti · Variedades / El Peruano · 2012"
+                    data-en="Qoyllur Riti · Variedades / El Peruano · 2012"
+                  >Qoyllur Riti · Variedades / El Peruano · 2012</a>
+                </li>
+                <li>
+                  <a
+                    href="assets/publicaciones/paucartambo-lo-nuestro-el-peruano.pdf"
+                    download
+                    data-es="Paucartambo · suplemento Lo Nuestro / El Peruano"
+                    data-en="Paucartambo · Lo Nuestro supplement / El Peruano"
+                  >Paucartambo · suplemento Lo Nuestro / El Peruano</a>
+                </li>
+                <li>
+                  <a
+                    href="assets/publicaciones/peregrinaje-senor-tayancani-la-republica.docx"
+                    download
+                    data-es="Peregrinaje del Señor de Tayancani · La República"
+                    data-en="Pilgrimage of the Lord of Tayancani · La República"
+                  >Peregrinaje del Señor de Tayancani · La República</a>
+                </li>
+                <li>
+                  <a
+                    href="assets/publicaciones/diccionario-inicam.pdf"
+                    download
+                    data-es="Diccionario INICAM"
+                    data-en="INICAM Dictionary"
+                  >Diccionario INICAM</a>
+                </li>
+                <li>
+                  <a
+                    href="assets/publicaciones/en-la-busqueda-del-desarrollo-humano-pnud.pdf"
+                    download
+                    data-es="En la búsqueda del desarrollo humano · PNUD"
+                    data-en="In Search of Human Development · UNDP"
+                  >En la búsqueda del desarrollo humano · PNUD</a>
+                </li>
+              </ul>
+            </details>
+          </article>
+        </div>
+
+        <div class="experience-group">
+          <h3 data-es="Docencia" data-en="Teaching">Docencia</h3>
+          <article class="experience-card">
+            <h4
+              data-es="Predocente, Facultad de Ciencias de la Comunicación"
+              data-en="Pre-lecturer, Faculty of Communication Sciences"
+            >
+              Predocente, Facultad de Ciencias de la Comunicación
+            </h4>
+            <p class="experience-organization">PUCP</p>
+            <p
+              class="experience-period"
+              data-es="Ago. 2017 – dic. 2020 · 3 años 5 meses"
+              data-en="Aug 2017 – Dec 2020 · 3 years 5 months"
+            >
+              Ago. 2017 – dic. 2020 · 3 años 5 meses
+            </p>
+          </article>
+        </div>
+
+        <div class="experience-group">
+          <h3 data-es="Pausa profesional" data-en="Career break">
+            Pausa profesional
+          </h3>
+          <article class="experience-card">
+            <h4
+              data-es="Descanso profesional (salud y bienestar)"
+              data-en="Career break (health and well-being)"
+            >
+              Descanso profesional (salud y bienestar)
+            </h4>
+            <p
+              class="experience-period"
+              data-es="Ene. 2022 – jul. 2023 · 1 año 7 meses"
+              data-en="Jan 2022 – Jul 2023 · 1 year 7 months"
+            >
+              Ene. 2022 – jul. 2023 · 1 año 7 meses
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><span data-es="©" data-en="©">©</span> <span id="year"></span> Susan</p>
+    </footer>
+  </body>
+</html>
