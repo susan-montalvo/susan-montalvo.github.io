@@ -280,7 +280,10 @@ function setLanguage(language) {
     );
   }
 
-  document.title = language === "es" ? "Website Susan" : "Susan's Website";
+  document.title =
+    language === "es"
+      ? "Susan Montalvo · Gestión cultural y editorial"
+      : "Susan Montalvo · Cultural and Publishing Management";
 
   for (const button of languageButtons) {
     const isActive = button.getAttribute("data-language") === language;
