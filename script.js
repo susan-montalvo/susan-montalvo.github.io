@@ -299,7 +299,7 @@ function updatePresentationSlide() {
 
   const slideNumber = currentPresentationSlide.toString().padStart(2, "0");
   presentationSlide.src =
-    `assets/liber/presentacion-completa/diapositiva-18-1/Diapositiva${slideNumber}.png`;
+    `assets/liber/presentacion-completa/diapositiva-18-1/Diapositiva${slideNumber}.jpg`;
   presentationSlide.alt =
     currentLanguage === "es"
       ? `Diapositiva ${currentPresentationSlide} de la presentación de Liber`
