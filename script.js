@@ -17,75 +17,208 @@ const presentationError = document.querySelector("#liber-slide-error");
 const presentationSlideTotal = 24;
 let currentPresentationSlide = 1;
 let currentLanguage = document.documentElement.lang;
-const archiveCarousel = document.querySelector("#archive-carousel");
-const archiveCarouselImage = document.querySelector("#archive-carousel-image");
-const archiveCarouselCaption = document.querySelector("#archive-carousel-caption");
-const archiveCarouselCount = document.querySelector("#archive-carousel-count");
-const archiveCarouselPrevious = document.querySelector(
-  "#archive-carousel-previous",
-);
-const archiveCarouselNext = document.querySelector("#archive-carousel-next");
-const archiveCarouselError = document.querySelector("#archive-carousel-error");
-const archiveCarouselImages = [
-  {
-    src: "assets/liber/diapositiva-18-2.png",
-    esAlt:
-      "Afiche de la Feria Internacional del Libro de Cusco 2020 y sus tiendas virtuales",
-    enAlt: "Poster for the 2020 Cusco International Book Fair and its virtual stores",
-    esCaption: "Afiche de FIL Cusco 2020",
-    enCaption: "FIL Cusco 2020 poster",
-  },
-  {
-    src: "assets/liber/diapositiva-18-3.jpeg",
-    esAlt: "Gráfica promocional de las tiendas virtuales de FIL Cusco 2020",
-    enAlt: "Promotional graphic for the FIL Cusco 2020 virtual stores",
-    esCaption: "Promoción de tiendas virtuales",
-    enCaption: "Virtual stores promotion",
-  },
-  {
-    src: "assets/liber/diapositiva-20-1.jpg",
-    esAlt: "Panel de administración de la página de Facebook de FIL Cusco",
-    enAlt: "FIL Cusco Facebook page administration dashboard",
-    esCaption: "Gestión de la página de FIL Cusco",
-    enCaption: "FIL Cusco page management",
-  },
-  {
-    src: "assets/liber/diapositiva-20-3.png",
-    esAlt:
-      "Gráfica de FIL Cusco 2020 con el número de invitados nacionales e internacionales",
-    enAlt:
-      "FIL Cusco 2020 graphic showing the number of national and international guests",
-    esCaption: "Invitados nacionales e internacionales",
-    enCaption: "National and international guests",
-  },
-  {
-    src: "assets/liber/diapositiva-20-4.jpeg",
-    esAlt: "Afiche de actividades del programa infantil de FIL Cusco",
-    enAlt: "Poster of children's program activities at FIL Cusco",
-    esCaption: "Actividades culturales",
-    enCaption: "Cultural activities",
-  },
-  {
-    src: "assets/liber/diapositiva-22-1.jpeg",
-    esAlt:
-      "Afiche de cierre de la Feria Internacional del Libro de Cusco 2020",
-    enAlt: "Closing poster for the 2020 Cusco International Book Fair",
-    esCaption: "Cierre de FIL Cusco 2020",
-    enCaption: "FIL Cusco 2020 closing",
-  },
-];
-let currentArchiveCarouselImage = 0;
 
 const projectsSection = document.querySelector("#proyectos");
 const talksSection = document.querySelector("#ponencias");
-const digitalInitiativesSection = document.querySelector("#iniciativas-digitales");
 
 if (projectsSection && talksSection) {
   projectsSection.after(talksSection);
 }
 
-if (digitalInitiativesSection && archiveCarousel) {
-  digitalInitiativesSection.append(archiveCarousel);
+for (const viewer of document.querySelectorAll("[data-step-viewer]")) {
+  const stage = viewer.querySelector("[data-step-stage]");
+  const steps = [...viewer.querySelectorAll("[data-step]")];
+  const previousButton = viewer.querySelector("[data-step-previous]");
+  const nextButton = viewer.querySelector("[data-step-next]");
+  const count = viewer.querySelector("[data-step-count]");
+  let currentStep = 0;
+
+  const showStep = (index) => {
+    currentStep = index;
+    steps.forEach((step, stepIndex) => {
+      step.hidden = stepIndex !== currentStep;
+    });
+    if (count) {
+      count.textContent = `${currentStep + 1} / ${steps.length}`;
+    }
+    if (previousButton) {
+      previousButton.disabled = currentStep === 0;
+    }
+    if (nextButton) {
+      nextButton.disabled = currentStep === steps.length - 1;
+    }
+    steps[currentStep]?.querySelector("[data-flipbook]")?.refreshFlipbook?.();
+  };
+
+  // Permite que los lectores de páginas internos pasen a la publicación vecina.
+  viewer.stepCount = steps.length;
+  viewer.currentStepIndex = () => currentStep;
+  viewer.goToStep = (index, edge) => {
+    if (index < 0 || index >= steps.length) {
+      return;
+    }
+    showStep(index);
+    const flipbook = steps[index].querySelector("[data-flipbook]");
+    flipbook?.showFlipEdge?.(edge);
+  };
+
+  stage?.addEventListener("click", (event) => {
+    if (event.target.closest("a, button, [data-flipbook]")) {
+      return;
+    }
+    showStep((currentStep + 1) % steps.length);
+  });
+
+  previousButton?.addEventListener("click", () => {
+    if (currentStep > 0) {
+      showStep(currentStep - 1);
+    }
+  });
+
+  nextButton?.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      showStep(currentStep + 1);
+    }
+  });
+
+  showStep(0);
+
+  // Avance automático: solo si la pestaña está abierta y nadie está
+  // interactuando con el carrusel, y nunca con "reducir movimiento".
+  const autoplayDelay = Number(viewer.dataset.stepAutoplay);
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (autoplayDelay > 0 && !reduceMotion) {
+    let paused = false;
+    viewer.addEventListener("mouseenter", () => {
+      paused = true;
+    });
+    viewer.addEventListener("mouseleave", () => {
+      paused = false;
+    });
+    viewer.addEventListener("focusin", () => {
+      paused = true;
+    });
+    viewer.addEventListener("focusout", () => {
+      paused = false;
+    });
+    // Con data-step-autoplay-from, las primeras partes (por ejemplo, un texto)
+    // esperan a que la persona avance, y luego solo se repiten las fotos.
+    const autoplayFrom = Number(viewer.dataset.stepAutoplayFrom) || 0;
+    window.setInterval(() => {
+      const container = viewer.closest("details");
+      const isVisible = (!container || container.open) && viewer.getClientRects().length > 0;
+      if (!paused && isVisible && !document.hidden && currentStep >= autoplayFrom) {
+        const next = currentStep + 1 < steps.length ? currentStep + 1 : autoplayFrom;
+        showStep(next);
+      }
+    }, autoplayDelay);
+  }
+}
+
+for (const flipbook of document.querySelectorAll("[data-flipbook]")) {
+  const pages = [...flipbook.querySelectorAll("[data-flip-page]")];
+  const spreadElement = flipbook.querySelector("[data-flip-spread]");
+  const previousButton = flipbook.querySelector("[data-flip-prev]");
+  const nextButton = flipbook.querySelector("[data-flip-next]");
+  const count = flipbook.querySelector("[data-flip-count]");
+  const narrowScreen = window.matchMedia("(max-width: 600px)");
+  let currentSpread = 0;
+
+  // Revista: portada sola, luego pliegos de dos páginas y contraportada sola.
+  const singlePages = flipbook.hasAttribute("data-flip-single");
+
+  const buildSpreads = () => {
+    if (singlePages || narrowScreen.matches) {
+      return pages.map((_, index) => [index]);
+    }
+    const spreads = [[0]];
+    for (let index = 1; index < pages.length - 1; index += 2) {
+      spreads.push(index + 1 < pages.length - 1 ? [index, index + 1] : [index]);
+    }
+    if (pages.length > 1) {
+      spreads.push([pages.length - 1]);
+    }
+    return spreads;
+  };
+
+  let spreads = buildSpreads();
+
+  const showSpread = (index) => {
+    currentSpread = Math.max(0, Math.min(index, spreads.length - 1));
+    const visible = spreads[currentSpread];
+    pages.forEach((page, pageIndex) => {
+      page.hidden = !visible.includes(pageIndex);
+    });
+    spreadElement?.classList.toggle("is-single", visible.length === 1);
+    if (count) {
+      const first = visible[0] + 1;
+      const last = visible[visible.length - 1] + 1;
+      count.textContent =
+        first === last ? `${first} / ${pages.length}` : `${first}–${last} / ${pages.length}`;
+    }
+    if (previousButton) {
+      previousButton.disabled = currentSpread === 0 && !hasNeighbor(-1);
+    }
+    if (nextButton) {
+      nextButton.disabled = currentSpread === spreads.length - 1 && !hasNeighbor(1);
+    }
+  };
+
+  // Si el lector está dentro de un carrusel, al terminar sus páginas
+  // continúa con la publicación siguiente (o vuelve a la anterior).
+  const parentViewer = flipbook.closest("[data-step-viewer]");
+  const hasNeighbor = (direction) => {
+    if (!parentViewer?.goToStep) {
+      return false;
+    }
+    const target = parentViewer.currentStepIndex() + direction;
+    return target >= 0 && target < parentViewer.stepCount;
+  };
+
+  const goForward = () => {
+    if (currentSpread < spreads.length - 1) {
+      showSpread(currentSpread + 1);
+    } else if (hasNeighbor(1)) {
+      parentViewer.goToStep(parentViewer.currentStepIndex() + 1, "start");
+    }
+  };
+
+  const goBack = () => {
+    if (currentSpread > 0) {
+      showSpread(currentSpread - 1);
+    } else if (hasNeighbor(-1)) {
+      parentViewer.goToStep(parentViewer.currentStepIndex() - 1, "end");
+    }
+  };
+
+  flipbook.showFlipEdge = (edge) => {
+    showSpread(edge === "end" ? spreads.length - 1 : 0);
+    flipbook.focus({ preventScroll: true });
+  };
+  flipbook.refreshFlipbook = () => showSpread(currentSpread);
+
+  previousButton?.addEventListener("click", goBack);
+  nextButton?.addEventListener("click", goForward);
+
+  flipbook.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      event.stopPropagation();
+      goBack();
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      event.stopPropagation();
+      goForward();
+    }
+  });
+
+  narrowScreen.addEventListener("change", () => {
+    const firstVisiblePage = spreads[currentSpread][0];
+    spreads = buildSpreads();
+    showSpread(spreads.findIndex((spread) => spread.includes(firstVisiblePage)));
+  });
+
+  showSpread(0);
 }
 
 function setLanguage(language) {
@@ -98,6 +231,10 @@ function setLanguage(language) {
 
   for (const image of document.querySelectorAll("[data-es-alt][data-en-alt]")) {
     image.setAttribute("alt", image.getAttribute(`data-${language}-alt`) ?? "");
+  }
+
+  for (const element of document.querySelectorAll("[data-es-title][data-en-title]")) {
+    element.setAttribute("title", element.getAttribute(`data-${language}-title`) ?? "");
   }
 
   for (const element of document.querySelectorAll(
@@ -133,14 +270,13 @@ function setLanguage(language) {
   }
 
   updatePresentationSlide();
-  updateArchiveCarousel();
 
   if (pageDescription) {
     pageDescription.setAttribute(
       "content",
       language === "es"
-        ? "Sitio web personal de Susan."
-        : "Susan's personal website.",
+        ? "Susan Montalvo, gestora cultural especializada en la industria editorial y su internacionalización: ferias internacionales del libro, bibliotecas, metadatos y datos abiertos."
+        : "Susan Montalvo, cultural manager specializing in publishing and its internationalization: international book fairs, libraries, metadata, and open data.",
     );
   }
 
@@ -184,84 +320,11 @@ function updatePresentationSlide() {
   }
 }
 
-function updateArchiveCarousel() {
-  if (
-    !archiveCarouselImage ||
-    !archiveCarouselCaption ||
-    !archiveCarouselCount
-  ) {
-    return;
-  }
-
-  const image = archiveCarouselImages[currentArchiveCarouselImage];
-  archiveCarouselImage.src = image.src;
-  archiveCarouselImage.alt =
-    currentLanguage === "es" ? image.esAlt : image.enAlt;
-  archiveCarouselCaption.textContent =
-    currentLanguage === "es" ? image.esCaption : image.enCaption;
-  archiveCarouselCount.textContent =
-    currentLanguage === "es"
-      ? `${currentArchiveCarouselImage + 1} de ${archiveCarouselImages.length}`
-      : `${currentArchiveCarouselImage + 1} of ${archiveCarouselImages.length}`;
-
-  if (archiveCarouselPrevious) {
-    archiveCarouselPrevious.disabled = currentArchiveCarouselImage === 0;
-  }
-
-  if (archiveCarouselNext) {
-    archiveCarouselNext.disabled =
-      currentArchiveCarouselImage === archiveCarouselImages.length - 1;
-  }
-
-  if (archiveCarouselError) {
-    archiveCarouselError.hidden = true;
-  }
-}
-
-archiveCarouselImage?.addEventListener("error", () => {
-  if (archiveCarouselError) {
-    archiveCarouselError.hidden = false;
-  }
-});
-
-archiveCarouselPrevious?.addEventListener("click", () => {
-  if (currentArchiveCarouselImage > 0) {
-    currentArchiveCarouselImage -= 1;
-    updateArchiveCarousel();
-  }
-});
-
-archiveCarouselNext?.addEventListener("click", () => {
-  if (currentArchiveCarouselImage < archiveCarouselImages.length - 1) {
-    currentArchiveCarouselImage += 1;
-    updateArchiveCarousel();
-  }
-});
-
-archiveCarousel?.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowLeft" && currentArchiveCarouselImage > 0) {
-    event.preventDefault();
-    event.stopPropagation();
-    currentArchiveCarouselImage -= 1;
-    updateArchiveCarousel();
-  } else if (
-    event.key === "ArrowRight" &&
-    currentArchiveCarouselImage < archiveCarouselImages.length - 1
-  ) {
-    event.preventDefault();
-    event.stopPropagation();
-    currentArchiveCarouselImage += 1;
-    updateArchiveCarousel();
-  }
-});
-
 if (presentationSlide && presentationError) {
   presentationSlide.addEventListener("error", () => {
     presentationError.hidden = false;
   });
 }
-
-updateArchiveCarousel();
 
 previousSlideButton?.addEventListener("click", () => {
   if (currentPresentationSlide > 1) {
